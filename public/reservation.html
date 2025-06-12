@@ -132,14 +132,6 @@
         <div class="selected-slot" id="selectedSlot">
             <h3>Créneau sélectionné : <span id="slotTime"></span></h3>
         </div>
-
-        <div class="payment-notice">
-            <h2>Validation de votre réservation</h2>
-            <p>Pour confirmer votre créneau, veuillez procéder au paiement de la session découverte (100€ TTC).</p>
-            <a href="paiement.html" class="payment-button" id="paymentButton" style="display: none;">
-                Procéder au paiement
-            </a>
-        </div>
     </div>
 
     <script>
@@ -150,11 +142,7 @@
                     // Afficher le créneau sélectionné
                     const selectedSlot = document.getElementById('selectedSlot');
                     const slotTime = document.getElementById('slotTime');
-                    const paymentButton = document.getElementById('paymentButton');
                     
-                    console.log('Calendly Event Payload:', e.data.payload);
-                    console.log('Calendly Event Start Time:', e.data.payload.event.start_time);
-
                     // Formater la date
                     const date = new Date(e.data.payload.event.start_time);
                     const formattedDate = date.toLocaleDateString('fr-FR', {
@@ -166,12 +154,13 @@
                         minute: '2-digit'
                     });
                     
-                    slotTime.textContent = formattedDate;
+                    slotTime.textContent = `Votre créneau le ${formattedDate} est confirmé !`;
                     selectedSlot.classList.add('visible');
-                    paymentButton.style.display = 'inline-block';
-
-                    // Stocker l'ID de l'événement Calendly dans le localStorage
-                    localStorage.setItem('calendlyEventId', e.data.payload.event.uri);
+                    
+                    // Redirection vers la page de confirmation après un court délai
+                    setTimeout(() => {
+                        window.location.href = 'confirmation.html';
+                    }, 3000); // Redirige après 3 secondes
                 }
             }
         });
