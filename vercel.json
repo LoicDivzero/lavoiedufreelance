@@ -16,16 +16,8 @@
       "dest": "backend/server.js"
     },
     {
-      "src": "/(index\\.html|paiement\\.html|reservation\\.html|confirmation\\.html|styles\\.css|script\\.js)",
-      "dest": "/public/$1"
-    },
-    {
-      "src": "/images/(.*)",
-      "dest": "/public/images/$1"
-    },
-    {
-      "src": "/",
-      "dest": "/public/index.html"
+      "src": "/(.*)",
+      "dest": "/$1"
     }
   ]
 } 
