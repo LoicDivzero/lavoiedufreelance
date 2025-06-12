@@ -152,6 +152,9 @@
                     const slotTime = document.getElementById('slotTime');
                     const paymentButton = document.getElementById('paymentButton');
                     
+                    console.log('Calendly Event Payload:', e.data.payload);
+                    console.log('Calendly Event Start Time:', e.data.payload.event.start_time);
+
                     // Formater la date
                     const date = new Date(e.data.payload.event.start_time);
                     const formattedDate = date.toLocaleDateString('fr-FR', {
