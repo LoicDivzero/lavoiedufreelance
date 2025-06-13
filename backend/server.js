@@ -8,7 +8,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-    origin: ['https://voiefreelance.fr', 'http://localhost:3000'],
+    origin: ['https://voiefreelance.fr', 'http://localhost:3000', 'http://localhost:5500', 'https://lavoiedufreelance.vercel.app'],
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type']
 }));

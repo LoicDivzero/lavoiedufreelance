@@ -211,7 +211,7 @@
 
             try {
                 // Créer l'intention de paiement côté serveur
-                const response = await fetch('http://localhost:3000/create-payment-intent', {
+                const response = await fetch('/create-payment-intent', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
