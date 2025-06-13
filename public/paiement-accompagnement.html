@@ -94,12 +94,13 @@
 
             try {
                 // Create payment intent on the server
-                const response = await fetch('/api/stripe/create-payment-intent', {
+                const response = await fetch('http://localhost:3000/create-payment-intent', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
+                        amount: 240000, // 2400€ en centimes
                         name: document.getElementById('name').value,
                         email: document.getElementById('email').value,
                         phone: document.getElementById('phone').value
