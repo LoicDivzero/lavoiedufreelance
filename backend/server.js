@@ -7,7 +7,11 @@ const nodemailer = require('nodemailer');
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: ['https://voiefreelance.fr', 'http://localhost:3000'],
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type']
+}));
 app.use(express.json());
 app.use(express.static('../')); // Servir les fichiers statiques du dossier parent
 
