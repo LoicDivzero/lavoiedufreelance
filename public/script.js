@@ -58,11 +58,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Gestion des boutons CTA
     const ctaButtons = document.querySelectorAll('.cta-button');
     ctaButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Ici, vous pouvez ajouter votre logique de redirection vers le formulaire de contact
-            // ou ouvrir une modal de contact
-            console.log('CTA button clicked');
-        });
+        // N'ajoute l'eventListener QUE si le bouton n'a pas déjà un href ou un onclick
+        if (!button.hasAttribute('onclick') && !button.hasAttribute('href')) {
+            button.addEventListener('click', () => {
+                // Ici, vous pouvez ajouter votre logique de redirection vers le formulaire de contact
+                // ou ouvrir une modal de contact
+                console.log('CTA button clicked');
+            });
+        }
     });
 
     // Animation des cartes au hover
