@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paiement Accompagnement - Voie Freelance</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="payment-form">
+            <h1>Commencer votre accompagnement</h1>
+            <p class="subtitle">Remplissez vos informations pour finaliser votre inscription</p>
+            
+            <form id="payment-form">
+                <div class="form-group">
+                    <label for="name">Nom complet</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Numéro de téléphone</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="card-element">Informations de carte</label>
+                    <div id="card-element"></div>
+                    <div id="card-errors" role="alert"></div>
+                </div>
+
+                <button type="submit" id="submit-button">
+                    <span id="button-text">Payer maintenant</span>
+                    <div id="spinner" class="spinner hidden"></div>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Stripe
+        const stripe = Stripe('pk_live_51RWysSGST3gpQU5uJFwrfku6ZrzUuDzswgYFx9ZEGTek3Gqln4w4pigy3kfBY3U97vrod6ccbnlv4zlURjYRnpet00498hqkLJ');
+        const elements = stripe.elements();
+
+        // Create card Element
+        const card = elements.create('card', {
+            style: {
+                base: {
+                    fontSize: '16px',
+                    color: '#32325d',
+                    '::placeholder': {
+                        color: '#aab7c4'
+                    }
+                },
+                invalid: {
+                    color: '#fa755a',
+                    iconColor: '#fa755a'
+                }
+            }
+        });
+
+        // Mount the card Element
+        card.mount('#card-element');
+
+        // Handle real-time validation errors
+        card.addEventListener('change', function(event) {
+            const displayError = document.getElementById('card-errors');
+            if (event.error) {
+                displayError.textContent = event.error.message;
+            } else {
+                displayError.textContent = '';
+            }
+        });
+
+        // Handle form submission
+        const form = document.getElementById('payment-form');
+        form.addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const submitButton = document.getElementById('submit-button');
+            const spinner = document.getElementById('spinner');
+            const buttonText = document.getElementById('button-text');
+
+            // Disable the submit button to prevent repeated clicks
+            submitButton.disabled = true;
+            spinner.classList.remove('hidden');
+            buttonText.textContent = 'Traitement en cours...';
+
+            try {
+                // Create payment intent on the server
+                const response = await fetch('/api/stripe/create-payment-intent', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: document.getElementById('name').value,
+                        email: document.getElementById('email').value,
+                        phone: document.getElementById('phone').value
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+
+                // Confirm the payment
+                const result = await stripe.confirmCardPayment(data.clientSecret, {
+                    payment_method: {
+                        card: card,
+                        billing_details: {
+                            name: document.getElementById('name').value,
+                            email: document.getElementById('email').value,
+                            phone: document.getElementById('phone').value
+                        }
+                    }
+                });
+
+                if (result.error) {
+                    throw new Error(result.error.message);
+                }
+
+                // Payment successful
+                window.location.href = '/confirmation-accompagnement.html';
+
+            } catch (error) {
+                const errorElement = document.getElementById('card-errors');
+                errorElement.textContent = error.message;
+                submitButton.disabled = false;
+                spinner.classList.add('hidden');
+                buttonText.textContent = 'Payer maintenant';
+            }
+        });
+    </script>
+</body>
+</html> 
