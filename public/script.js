@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
                 const startPosition = window.pageYOffset;
                 const distance = targetPosition - startPosition;
-                const duration = 1000; // durée en millisecondes
+                const duration = 1500; // durée en millisecondes
                 let start = null;
 
                 function animation(currentTime) {
