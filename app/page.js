@@ -54,35 +54,35 @@ export default function Home() {
         </nav>
         <div className="hero-content">
           <h1>De salarié à indépendant, en toute confiance</h1>
-          <p className="subtitle">Transformez votre carrière avec un accompagnement personnalisé</p>
+          <p className="subtitle">Un accompagnement structuré pour franchir le cap sereinement, gagner en liberté et augmenter votre rémunération</p>
           <button className="cta-button primary" onClick={() => window.location.href = '/paiement-accompagnement.html'}>
-            Commencer l&apos;accompagnement
+            Commencer l&apos;accompagnement →
           </button>
         </div>
       </header>
 
       <section className="target-audience">
-        <h2>À qui s&apos;adresse cet accompagnement ?</h2>
+        <h2>Cet accompagnement s’adresse à vous si…</h2>
         <div className="audience-grid">
           <div className="audience-card">
             <i className="fas fa-laptop-code"></i>
-            <h3>Professionnels IT & Logistique</h3>
-            <p>Vous êtes salarié(e) dans l&apos;informatique, la logistique ou un domaine connexe</p>
+            <h3>Vous êtes salarié dans un métier technique</h3>
+            <p>Informatique, logistique, ou tout domaine où l’indépendance est possible mais sans mode d'emploi évident.</p>
           </div>
           <div className="audience-card">
             <i className="fas fa-rocket"></i>
-            <h3>Futurs Indépendants</h3>
-            <p>Vous réfléchissez à quitter votre emploi pour devenir indépendant(e)</p>
+            <h3>Vous envisagez de quitter votre emploi salarié</h3>
+            <p>Vous souhaitez devenir indépendant, mais vous avez besoin d’un cadre pour le faire sans risque inutile.</p>
           </div>
           <div className="audience-card">
             <i className="fas fa-handshake"></i>
-            <h3>Besoin de Support</h3>
-            <p>Vous avez besoin d&apos;un cadre clair et d&apos;un soutien humain</p>
+            <h3>Vous souhaitez un accompagnement structuré</h3>
+            <p>Vous ne cherchez pas de discours magique, mais un cadre clair et un vrai soutien humain.</p>
           </div>
           <div className="audience-card">
             <i className="fas fa-shield-alt"></i>
-            <h3>Prudence & Expertise</h3>
-            <p>Vous ne voulez pas faire d&apos;erreurs coûteuses sur le choix du statut, les tarifs, ou la prospection</p>
+            <h3>Vous voulez éviter les erreurs coûteuses</h3>
+            <p>Choix du statut, tarification, prospection… vous préférez avancer avec méthode et recul.</p>
           </div>
         </div>
       </section>
@@ -94,28 +94,63 @@ export default function Home() {
             <div className="timeline-icon"><i className="fas fa-check-circle"></i></div>
             <div className="timeline-content">
               <h3>Analyse de Situation</h3>
-              <p>Faire le point sur votre expérience, compétences et spécialités</p>
-            </div>
-          </div>
-          <div className="timeline-item">
-            <div className="timeline-icon"><i className="fas fa-check-circle"></i></div>
-            <div className="timeline-content">
-              <h3>Statut Juridique</h3>
-              <p>Choisir le bon statut juridique (auto-entreprise, société, portage, etc.)</p>
+              <p>Identifier vos forces, expertises et options pour un positionnement freelance cohérent</p>
             </div>
           </div>
           <div className="timeline-item">
             <div className="timeline-icon"><i className="fas fa-check-circle"></i></div>
             <div className="timeline-content">
               <h3>Profil Professionnel</h3>
-              <p>Construire votre profil freelance (CV, LinkedIn, plateformes)</p>
+              <p>Créer un profil freelance convaincant et crédible pour décrocher vos premières missions (CV, LinkedIn, plateformes). Ensemble, nous créerons votre "CV de freelance" dont la forme est très différente d'un CV classique !</p>
             </div>
           </div>
           <div className="timeline-item">
             <div className="timeline-icon"><i className="fas fa-check-circle"></i></div>
             <div className="timeline-content">
-              <h3>Prospection</h3>
-              <p>Trouver vos premières missions et clients (ESN, plateformes, réseaux)</p>
+              <h3>Bien préparer son départ</h3>
+              <p>Comprendre les différentes options de sortie, connaître les conséquences sur vos droits au chômage, et garder le contrôle du timing.</p>
+            </div>
+          </div>
+          <div className="timeline-item">
+            <div className="timeline-icon"><i className="fas fa-check-circle"></i></div>
+            <div className="timeline-content">
+              <h3>Mobiliser les aides de l'Etat</h3>
+              <p>Comprendre les conditions d’éligibilité, les démarches à faire au bon moment, et comment ces aides s’articulent entre elles. Je vous accompagne dans les formalités administratives.</p>
+            </div>
+          </div>
+          <div className="timeline-item">
+            <div className="timeline-icon"><i className="fas fa-check-circle"></i></div>
+            <div className="timeline-content">
+              <h3>Tarification</h3>
+              <p>Fixer votre tarif journalier moyen (TJM) avec justesse, selon le marché et votre expérience. Apprendre à dire non sans culpabiliser.</p>
+            </div>
+          </div>
+          <div className="timeline-item">
+            <div className="timeline-icon"><i className="fas fa-check-circle"></i></div>
+            <div className="timeline-content">
+              <h3>Statut Juridique</h3>
+              <p>Comparer les options juridiques pour choisir celle qui protège au mieux vos intérêts (auto-entreprise, société, portage…). J'effectue les démarches de création avec vous.</p>
+            </div>
+          </div>
+          <div className="timeline-item">
+            <div className="timeline-icon"><i className="fas fa-check-circle"></i></div>
+            <div className="timeline-content">
+              <h3>Décrocher sa première misson !</h3>
+              <p>Je vous constituerai un carnet d’adresses personnalisé avec les apporteurs d’affaires pertinents de votre région et je vous accompagnerai lors de vos premiers échanges avec eux.</p>
+            </div>
+          </div>
+          <div className="timeline-item">
+            <div className="timeline-icon"><i className="fas fa-check-circle"></i></div>
+            <div className="timeline-content">
+              <h3>Organisation & gestion</h3>
+              <p>Apprendre à gérer votre activité au quotidien : factures, comptes-rendus d'activité, notes de frais, communication… sans vous noyer. Je vous fournirai tous les modèles de documents et vous expliquerai comment ils fonctionnent.</p>
+            </div>
+          </div>
+          <div className="timeline-item">
+            <div className="timeline-icon"><i className="fas fa-check-circle"></i></div>
+            <div className="timeline-content">
+              <h3>Rejoignez une communauté bienveillante</h3>
+              <p>Vous ne serez pas seul après le lancement : vous rejoindrez une communauté d’indépendants que j’ai déjà accompagnés, dans un espace privé dédié. Vous y trouverez du soutien entre pairs, des astuces, et des opportunités de missions qui circulent régulièrement.</p>
             </div>
           </div>
         </div>
@@ -132,6 +167,7 @@ export default function Home() {
               <li><i className="fas fa-check"></i> Débloquez votre situation en 1 heure</li>
               <li><i className="fas fa-check"></i> Repartez avec un plan d&apos;actions clair</li>
               <li><i className="fas fa-check"></i> Posez toutes vos questions (même les taboues)</li>
+              <li><i className="fas fa-check"></i> Posez toutes vos questions (même les taboues)</li>
             </ul>
             <div className="cta-button-container">
               <Link href="/reservation.html" className="cta-button primary">
@@ -141,13 +177,13 @@ export default function Home() {
             </div>
           </div>
           <div className="pricing-card featured">
-            <h3>✅ Coaching premium jusqu’à votre 1er client</h3>
+            <h3>✅ Coaching premium jusqu'à votre 1er client</h3>
             <div className="price-description">🚀 Passez freelance en étant guidé de A à Z <br />Sans vous perdre, ni procrastiner.</div>
             <div className="price">799 € TTC</div>
             <ul>
-              <li>💬 Coaching illimité jusqu’à votre lancement</li>
+              <li>💬 Coaching illimité jusqu'à votre lancement</li>
               <li>🤝 Suivi personnalisé entre chaque session</li>
-              <li>🧰 Outils & modèles prêts à l’emploi</li>
+              <li>🧰 Outils & modèles prêts à l'emploi</li>
               <li>🔓 Accès à vie à toutes les ressources</li>
             </ul>
             <button className="cta-button primary" onClick={() => window.location.href = '/paiement-accompagnement.html'}>
@@ -191,13 +227,18 @@ export default function Home() {
       <footer>
         <div className="footer-content">
           <div className="contact">
-            <h3>Contact</h3>
+            <Link href="/contact" className="text-white hover:text-gray-200">
+              <h3>Contact</h3>
+            </Link>
             <p>Loïc</p>
             <p>Consultant freelance & accompagnant vers l&apos;indépendance</p>
           </div>
           <div className="cta-footer">
+            <button className="cta-button" onClick={() => window.location.href = '/reservation.html'}>
+              Réserver une heure en visio
+            </button>
             <button className="cta-button primary" onClick={() => window.location.href = '/paiement-accompagnement.html'}>
-              Commencer l&apos;accompagnement
+              Commencer mon accompagnement →
             </button>
           </div>
         </div>
