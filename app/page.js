@@ -42,6 +42,24 @@ export default function Home() {
     });
   }, []);
 
+  const handleCheckout = async () => {
+    try {
+      const res = await fetch('/api/checkout_sessions', {
+        method: 'POST',
+      });
+  
+      const data = await res.json();
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert("Erreur lors de la redirection vers le paiement.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Une erreur s'est produite.");
+    }
+  };  
+
   return (
     <div className="container">
       <Script src="/script.js" strategy="afterInteractive" />
@@ -164,64 +182,58 @@ export default function Home() {
             <div className="price-description">🧠 Besoin d'un déclic pour passer freelance ?<br />Cette session est faite pour vous.</div>
             <div className="price">49 € TTC</div>
             <ul>
-              <li><i className="fas fa-check"></i> Débloquez votre situation en 1 heure</li>
-              <li><i className="fas fa-check"></i> Repartez avec un plan d&apos;actions clair</li>
-              <li><i className="fas fa-check"></i> Posez toutes vos questions (même les taboues)</li>
-              <li><i className="fas fa-check"></i> Posez toutes vos questions (même les taboues)</li>
+              <li><i className="fas fa-check"></i> 1h pour débloquer votre situation</li>
+              <li><i className="fas fa-check"></i> Un plan d’action clair, immédiat et réaliste</li>
+              <li><i className="fas fa-check"></i> Toutes vos questions sont bienvenues</li>
+              <li><i className="fas fa-check"></i> On va droit au but, sans pression ni jugement</li>
             </ul>
             <div className="cta-button-container">
-              <Link href="/reservation.html" className="cta-button primary">
-                Je réserve ma session à 49 €
-              </Link>
-              <div className="reassurance">🔒 Paiement sécurisé — Aucun engagement</div>
+            <button className="cta-button primary" onClick={handleCheckout}>
+              Je réserve ma session à 49 €
+            </button>
             </div>
           </div>
           <div className="pricing-card featured">
-            <h3>✅ Coaching premium jusqu'à votre 1er client</h3>
+            <h3>✅ Accompagnement dédié jusqu’à votre 1er client</h3>
             <div className="price-description">🚀 Passez freelance en étant guidé de A à Z <br />Sans vous perdre, ni procrastiner.</div>
             <div className="price">799 € TTC</div>
             <ul>
-              <li>💬 Coaching illimité jusqu'à votre lancement</li>
-              <li>🤝 Suivi personnalisé entre chaque session</li>
-              <li>🧰 Outils & modèles prêts à l'emploi</li>
-              <li>🔓 Accès à vie à toutes les ressources</li>
+              <li>💬 Suivi illimité jusqu'à votre lancement</li>
+              <li>🤝 Entretiens personnalisés à chaque étape</li>
+              <li>🧰 Modèles, outils & carnets d’adresses inclus</li>
+              <li>🔓 Accès aux ressources et à la communauté</li>
             </ul>
-            <button className="cta-button primary" onClick={() => window.location.href = '/paiement-accompagnement.html'}>
+            <button
+              className="cta-button primary"
+              onClick={async () => {
+                const res = await fetch('/api/checkout_sessions_accompagnement', {
+                  method: 'POST',
+                });
+                const data = await res.json();
+                if (data.url) {
+                  window.location.href = data.url;
+                }
+              }}
+            >
               Commencer mon accompagnement →
             </button>
+
           </div>
         </div>
+        <div className="reassurance">🔒 Paiement sécurisé via Stripe</div>
       </section>
 
       <section className="trust">
         <h2>Pourquoi me faire confiance ?</h2>
         <div className="trust-content">
-          <p>Je ne suis pas un coach business. Je suis un <strong>freelance opérationnel</strong>, exactement comme vous souhaitez le devenir.</p>
-          <p>Je connais les questions que vous vous posez. Les doutes. Les "et si je n&apos;y arrive pas ?". Les devis qu&apos;on n&apos;ose pas envoyer. Les premières missions sous-payées qu&apos;on accepte par peur.</p>
-          <p>Je vous propose un <strong>accompagnement honnête, humain, sans jargon, sans promesse magique</strong>. Seulement ce qui fonctionne vraiment, dans le réel.</p>
+          <p>Je ne suis pas un coach business. Je suis un freelance en activité — exactement ce que vous souhaitez devenir.</p>
+          <p>Je connais les questions que vous vous posez. J'ai connu la peur de ne pas trouver de mission, de se retrouver sans salaire au début. Certains doivent convaincre leur conjoint en plus de se convaincre eux-mêmes. La croyance de ne pas avoir assez d'expérience...</p>
+          <p>Puis j'ai connu le bonheur de me retrouver avec 3 salaires "d'avance" par rapport à mon salaire CDI, puis 6, puis à rapidement ne plus avoir peur d'un éventuel trou entre les missions.</p>
+          <p>Je vous propose un <strong>accompagnement honnête, humain, sans jargon, sans promesse magique</strong>, basé sur le réel, et sur ce qui fonctionne <strong> vraiment</strong> sur le terrain.</p>
         </div>
       </section>
 
       <section className="faq">
-        <h2>Questions fréquentes</h2>
-        <div className="faq-grid">
-          <div className="faq-item">
-            <h3>Puis-je suivre l&apos;accompagnement tout en étant encore salarié ?</h3>
-            <p>Oui. Vous pouvez préparer votre lancement en parallèle de votre CDI.</p>
-          </div>
-          <div className="faq-item">
-            <h3>Et si je ne suis pas sûr(e) d&apos;avoir une spécialité ?</h3>
-            <p>Nous travaillons ensemble pour identifier votre positionnement.</p>
-          </div>
-          <div className="faq-item">
-            <h3>Garantissez vous que je vais trouver une mission ?</h3>
-            <p>Je ne vends pas de rêve. Mais je vous donne tous les outils, méthodes et retours d&apos;expérience nécessaires pour maximiser vos chances et limiter les risques.</p>
-          </div>
-          <div className="faq-item">
-            <h3>Puis-je payer en plusieurs fois ?</h3>
-            <p>Oui, un paiement en 2 ou 3 fois est possible pour la formule complète. Il suffit de me le demander.</p>
-          </div>
-        </div>
       </section>
 
       <footer>
