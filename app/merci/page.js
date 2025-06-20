@@ -49,6 +49,13 @@ export default function Merci() {
           </span>
         </div>
       </div>
+
+      <div style={{maxWidth: '600px', margin: '2rem auto', fontSize: '1.15rem', textAlign: 'left', background: 'rgba(255,255,255,0.95)', borderRadius: '0.75rem', padding: '1.5rem 1.2rem', boxShadow: '0 2px 12px rgba(0,0,0,0.04)'}}>
+        <p style={{marginBottom: '1rem'}}>Je vais maintenant vous contacter personnellement par e-mail sous 24h pour fixer ensemble la date de notre session visio !</p>
+        <p style={{marginBottom: '1rem'}}>Vérifiez bien votre boîte mail — et pensez à regarder dans vos spams si vous ne voyez rien arriver.</p>
+        <p style={{marginBottom: 0}}>📩 Une question d'ici là ? Vous pouvez me répondre directement ou m'écrire à <strong>desailly.conseil@gmail.com</strong></p>
+      </div>
+
       <a href="/" className="cta-button primary">Retour à l'accueil</a>
     </div>
   );

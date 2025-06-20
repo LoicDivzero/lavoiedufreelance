@@ -97,17 +97,17 @@ export default function Home() {
       </header>
 
       <section className="target-audience">
-        <h2>Cet accompagnement s’adresse à vous si…</h2>
+        <h2>Cet accompagnement s'adresse à vous si…</h2>
         <div className="audience-grid">
           <div className="audience-card">
             <i className="fas fa-laptop-code"></i>
             <h3>Vous êtes salarié dans un métier technique</h3>
-            <p>Informatique, logistique, ou tout domaine où l’indépendance est possible mais sans mode d'emploi évident.</p>
+            <p>Informatique, logistique, ou tout domaine où l'indépendance est possible mais sans mode d'emploi évident.</p>
           </div>
           <div className="audience-card">
             <i className="fas fa-rocket"></i>
             <h3>Vous envisagez de quitter votre emploi salarié</h3>
-            <p>Vous souhaitez devenir indépendant, mais vous avez besoin d’un cadre pour le faire sans risque inutile.</p>
+            <p>Vous souhaitez devenir indépendant, mais vous avez besoin d'un cadre pour le faire sans risque inutile.</p>
           </div>
           <div className="audience-card">
             <i className="fas fa-handshake"></i>
@@ -120,6 +120,23 @@ export default function Home() {
             <p>Choix du statut, tarification, prospection… vous préférez avancer avec méthode et recul.</p>
           </div>
         </div>
+      
+        <div className="bg-gray-50 border-y border-gray-200 py-4">
+          <div className="max-w-7xl mx-auto px-4 overflow-hidden">
+            <ul className="target-list" style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1.5rem', listStyle: 'disc', padding: 0, margin: 0}}>
+              <li className="text-gray-700 text-sm font-medium" style={{minWidth: '180px'}}>Développeur web</li>
+              <li className="text-gray-700 text-sm font-medium" style={{minWidth: '180px'}}>Consultant logistique</li>
+              <li className="text-gray-700 text-sm font-medium" style={{minWidth: '180px'}}>UX designer</li>
+              <li className="text-gray-700 text-sm font-medium" style={{minWidth: '180px'}}>Chef de projet digital</li>
+              <li className="text-gray-700 text-sm font-medium" style={{minWidth: '180px'}}>Spécialiste data</li>
+              <li className="text-gray-700 text-sm font-medium" style={{minWidth: '180px'}}>Product Owner</li>
+              <li className="text-gray-700 text-sm font-medium" style={{minWidth: '180px'}}>Administrateur systèmes</li>
+              <li className="text-gray-700 text-sm font-medium" style={{minWidth: '180px'}}>Analyste métier</li>
+              <li className="text-gray-700 text-sm font-medium" style={{minWidth: '180px'}}>Coach agile</li>
+            </ul>
+          </div>
+        </div>
+
       </section>
 
       <section className="program">
@@ -150,7 +167,7 @@ export default function Home() {
             <div className="timeline-icon"><i className="fas fa-check-circle"></i></div>
             <div className="timeline-content">
               <h3>Mobiliser les aides de l'Etat</h3>
-              <p>Comprendre les conditions d’éligibilité, les démarches à faire au bon moment, et comment ces aides s’articulent entre elles. Je vous accompagne dans les formalités administratives.</p>
+              <p>Comprendre les conditions d'éligibilité, les démarches à faire au bon moment, et comment ces aides s'articulent entre elles. Je vous accompagne dans les formalités administratives.</p>
             </div>
           </div>
           <div className="timeline-item">
@@ -171,7 +188,7 @@ export default function Home() {
             <div className="timeline-icon"><i className="fas fa-check-circle"></i></div>
             <div className="timeline-content">
               <h3>Décrocher sa première misson !</h3>
-              <p>Je vous constituerai un carnet d’adresses personnalisé avec les apporteurs d’affaires pertinents de votre région et je vous accompagnerai lors de vos premiers échanges avec eux.</p>
+              <p>Je vous constituerai un carnet d'adresses personnalisé avec les apporteurs d'affaires pertinents de votre région et je vous accompagnerai lors de vos premiers échanges avec eux.</p>
             </div>
           </div>
           <div className="timeline-item">
@@ -185,7 +202,7 @@ export default function Home() {
             <div className="timeline-icon"><i className="fas fa-check-circle"></i></div>
             <div className="timeline-content">
               <h3>Rejoignez une communauté bienveillante</h3>
-              <p>Vous ne serez pas seul après le lancement : vous rejoindrez une communauté d’indépendants que j’ai déjà accompagnés, dans un espace privé dédié. Vous y trouverez du soutien entre pairs, des astuces, et des opportunités de missions qui circulent régulièrement.</p>
+              <p>Vous ne serez pas seul après le lancement : vous rejoindrez une communauté d'indépendants que j'ai déjà accompagnés, dans un espace privé dédié. Vous y trouverez du soutien entre pairs, des astuces, et des opportunités de missions qui circulent régulièrement.</p>
             </div>
           </div>
         </div>
@@ -200,7 +217,7 @@ export default function Home() {
             <div className="price">49 € TTC</div>
             <ul>
               <li><i className="fas fa-check"></i> 1h pour débloquer votre situation</li>
-              <li><i className="fas fa-check"></i> Un plan d’action clair, immédiat et réaliste</li>
+              <li><i className="fas fa-check"></i> Un plan d'action clair, immédiat et réaliste</li>
               <li><i className="fas fa-check"></i> Toutes vos questions sont bienvenues</li>
               <li><i className="fas fa-check"></i> On va droit au but, sans pression ni jugement</li>
             </ul>
@@ -211,13 +228,13 @@ export default function Home() {
             </div>
           </div>
           <div className="pricing-card featured">
-            <h3>✅ Accompagnement dédié jusqu’à votre 1er client</h3>
+            <h3>✅ Accompagnement dédié jusqu'à votre 1er client</h3>
             <div className="price-description">🚀 Passez freelance en étant guidé de A à Z <br />Sans vous perdre, ni procrastiner.</div>
             <div className="price">799 € TTC</div>
             <ul>
               <li>💬 Suivi illimité jusqu'à votre lancement</li>
               <li>🤝 Entretiens personnalisés à chaque étape</li>
-              <li>🧰 Modèles, outils & carnets d’adresses inclus</li>
+              <li>🧰 Modèles, outils & carnets d'adresses inclus</li>
               <li>🔓 Accès aux ressources et à la communauté</li>
             </ul>
             <button className="cta-button primary" onClick={handleCheckout2}>
@@ -252,7 +269,7 @@ export default function Home() {
           </div>
           <div className="cta-footer">
             <button className="cta-button primary" onClick={handleCheckout}>
-              Je réserve ma session à 49 €
+              Je réserve une heure en visio
             </button>
             <button className="cta-button primary" onClick={handleCheckout2}>
               Commencer mon accompagnement →
