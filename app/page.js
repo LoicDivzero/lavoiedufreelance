@@ -35,7 +35,6 @@ export default function Home() {
               requestAnimationFrame(animation);
             }
           }
-
           requestAnimationFrame(animation);
         }
       });
@@ -45,6 +44,24 @@ export default function Home() {
   const handleCheckout = async () => {
     try {
       const res = await fetch('/api/checkout_sessions', {
+        method: 'POST',
+      });
+  
+      const data = await res.json();
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert("Erreur lors de la redirection vers le paiement.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Une erreur s'est produite.");
+    }
+  };  
+
+  const handleCheckout2 = async () => {
+    try {
+      const res = await fetch('/api/checkout_sessions_accompagnement', {
         method: 'POST',
       });
   
@@ -73,8 +90,8 @@ export default function Home() {
         <div className="hero-content">
           <h1>De salarié à indépendant, en toute confiance</h1>
           <p className="subtitle">Un accompagnement structuré pour franchir le cap sereinement, gagner en liberté et augmenter votre rémunération</p>
-          <button className="cta-button primary" onClick={() => window.location.href = '/paiement-accompagnement.html'}>
-            Commencer l&apos;accompagnement →
+          <button className="cta-button primary" onClick={handleCheckout2}>
+            Commencer mon accompagnement →
           </button>
         </div>
       </header>
@@ -203,21 +220,9 @@ export default function Home() {
               <li>🧰 Modèles, outils & carnets d’adresses inclus</li>
               <li>🔓 Accès aux ressources et à la communauté</li>
             </ul>
-            <button
-              className="cta-button primary"
-              onClick={async () => {
-                const res = await fetch('/api/checkout_sessions_accompagnement', {
-                  method: 'POST',
-                });
-                const data = await res.json();
-                if (data.url) {
-                  window.location.href = data.url;
-                }
-              }}
-            >
+            <button className="cta-button primary" onClick={handleCheckout2}>
               Commencer mon accompagnement →
             </button>
-
           </div>
         </div>
         <div className="reassurance">🔒 Paiement sécurisé via Stripe</div>
@@ -246,10 +251,10 @@ export default function Home() {
             <p>Consultant freelance & accompagnant vers l&apos;indépendance</p>
           </div>
           <div className="cta-footer">
-            <button className="cta-button" onClick={() => window.location.href = '/reservation.html'}>
-              Réserver une heure en visio
+            <button className="cta-button primary" onClick={handleCheckout}>
+              Je réserve ma session à 49 €
             </button>
-            <button className="cta-button primary" onClick={() => window.location.href = '/paiement-accompagnement.html'}>
+            <button className="cta-button primary" onClick={handleCheckout2}>
               Commencer mon accompagnement →
             </button>
           </div>
@@ -257,4 +262,4 @@ export default function Home() {
       </footer>
     </div>
   )
-} 
+}
